@@ -1,3 +1,4 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import topicsRouter from '../backend/src/routes/topics';
@@ -37,4 +38,14 @@ app.use((err: Error, req: Request, res: Response, next: any) => {
   });
 });
 
-export default app;
+// Vercel serverless function handler
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  return new Promise((resolve, reject) => {
+    app(req as any, res as any, (err: any) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(undefined);
+    });
+  });
+}
