@@ -1,0 +1,242 @@
+.dashboard-page {
+  /* No specific styles needed */
+}
+
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card:nth-child(2) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-card:nth-child(3) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.stat-unit {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.difficulty-distribution {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.difficulty-distribution h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.difficulty-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.difficulty-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.difficulty-label {
+  min-width: 80px;
+  font-weight: bold;
+  color: #333;
+}
+
+.difficulty-bar-container {
+  flex: 1;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.difficulty-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%);
+  border-radius: 15px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.difficulty-bar-fill.medium {
+  background: linear-gradient(90deg, #FF9800 0%, #FFC107 100%);
+}
+
+.difficulty-bar-fill.hard {
+  background: linear-gradient(90deg, #F44336 0%, #E91E63 100%);
+}
+
+.calendar-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.calendar-section h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.calendar-day.has-practice {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.calendar-day.has-practice:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.ai-report-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.ai-report-section h2 {
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.ai-report-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.ai-report-empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+.ai-report-empty p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.generate-report-btn {
+  background-color: white;
+  color: #667eea;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.generate-report-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.generate-report-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
