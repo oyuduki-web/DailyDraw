@@ -3,10 +3,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// 本番環境ではDATABASE_URLを使用、開発環境では個別の設定を使用
-const pool = process.env.DATABASE_URL
+// 本番環境ではDATABASE_URL または POSTGRES_URL を使用、開発環境では個別の設定を使用
+const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+
+const pool = connectionString
   ? new Pool({
-      connectionString: process.env.DATABASE_URL,
+      connectionString,
       ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : undefined
     })
   : new Pool({
