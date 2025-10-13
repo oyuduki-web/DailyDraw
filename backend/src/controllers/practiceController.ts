@@ -40,8 +40,8 @@ export async function createPracticeSession(req: Request, res: Response) {
       });
     }
 
-    // 画像パス（相対パス）
-    const imagePath = `/uploads/${req.file.filename}`;
+    // 画像パス（Cloudinary URL or ローカルパス）
+    const imagePath = (req.file as any).path || `/uploads/${req.file.filename}`;
 
     // 暫定的に user_id = 1 として扱う（今後認証実装後に修正）
     const userId = 1;

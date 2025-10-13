@@ -1,24 +1,23 @@
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
-// アップロードディレクトリの確認・作成
-const uploadDir = path.join(__dirname, '../../../uploads');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+// Cloudinary設定
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
-// ストレージの設定
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadDir);
-  },
-  filename: (req, file, cb) => {
-    // ファイル名: timestamp-randomstring.拡張子
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const ext = path.extname(file.originalname);
-    cb(null, `practice-${uniqueSuffix}${ext}`);
-  }
+// Cloudinaryストレージの設定
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'dailydraw-practice',
+    allowed_formats: ['jpg', 'jpeg', 'png'],
+    transformation: [{ width: 1000, height: 1000, crop: 'limit' }]
+  } as any
 });
 
 // ファイルフィルター（画像のみ許可）
