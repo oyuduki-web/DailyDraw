@@ -1,6 +1,6 @@
 {
   "installCommand": "echo 'Skipping root install'",
-  "buildCommand": "cd frontend && npm install && npm run build",
+  "buildCommand": "sh -c 'cd frontend && npm install && npm run build'",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     {
