@@ -134,7 +134,7 @@ function Gallery() {
               onClick={() => setSelectedPractice(practice)}
             >
               <img
-                src={`http://localhost:3001${practice.image_path}`}
+                src={practice.image_path}
                 alt={practice.topic_description}
                 className="gallery-image"
               />
@@ -169,7 +169,7 @@ function Gallery() {
               ×
             </button>
             <img
-              src={`http://localhost:3001${selectedPractice.image_path}`}
+              src={selectedPractice.image_path}
               alt={selectedPractice.topic_description}
               className="modal-image"
             />
