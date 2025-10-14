@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd frontend && npm install && npx --package=typescript tsc -b && npx vite build",
+  "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "echo 'Skip'",
+  "installCommand": "npm install --prefix frontend && npm install --prefix backend",
   "rewrites": [
     {
       "source": "/api/:path*",
