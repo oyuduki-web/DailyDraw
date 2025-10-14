@@ -1,7 +1,7 @@
 {
-  "buildCommand": "bash -c 'cd frontend && npm install && npm run build'",
+  "buildCommand": "bash -c 'cd frontend && npm install && ./node_modules/.bin/tsc -b && ./node_modules/.bin/vite build'",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm install --prefix frontend",
+  "installCommand": "echo 'Skipping root install'",
   "rewrites": [
     {
       "source": "/api/:path*",
