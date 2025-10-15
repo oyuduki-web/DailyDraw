@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install --prefix frontend && npm install --prefix backend && cd frontend && npx --package=typescript tsc -b && npx vite build",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     {
